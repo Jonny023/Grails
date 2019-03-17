@@ -1,2 +1,3 @@
-*.groovy linguist-language=Groovy
-*.gsp linguist-language=Groovy
+*.js linguist-language=Groovy
+*.css linguist-language=Groovy
+*.html linguist-language=Groovy
