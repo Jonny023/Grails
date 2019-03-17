@@ -1,2 +1,2 @@
-*.groovy linguist-language=Grails
-*.gsp linguist-language=Grails
+*.groovy linguist-language=Groovy
+*.gsp linguist-language=Groovy
