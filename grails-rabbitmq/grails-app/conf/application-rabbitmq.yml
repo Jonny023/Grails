@@ -1,0 +1,18 @@
+rabbitmq:
+  connections:
+    - name: test
+      host: 127.0.0.1
+      username: admin
+      password: admin
+      port: 5672
+      virtualHost: /rabbit
+  queues:
+    - name: userQueue
+      exchange: test-exchange
+    - name: test.#
+      durable: true
+      exchange: test-exchange
+  exchanges:
+    - name: test-exchange
+      type: topic
+      durable: true
