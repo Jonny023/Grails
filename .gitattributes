@@ -1,2 +1,2 @@
-*.py linguist-language=Grails
-*.txt linguist-language=Grails
+*.groovy linguist-language=Grails
+*.gsp linguist-language=Grails
