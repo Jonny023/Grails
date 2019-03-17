@@ -1,5 +1,7 @@
 # Grails-RabbitMQ demo
 
+[windows rabbitmq安装](https://github.com/Jonny023/Study/blob/master/rabbit/Windows%20RabbitMQ%E5%AE%89%E8%A3%85.md)
+
 * `Grails 4`
 * `rabbitmq-native 3.3.3`
 
