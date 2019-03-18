@@ -133,8 +133,9 @@ environments:
                 defaultTransactionIsolation: 2 # TRANSACTION_READ_COMMITTED
 
 flowable:
-    #关闭定时任务JOB
+    # 关闭定时任务JOB
     async-executor-activate: false
+    # 首次必须用:create-drop
     database-schema-update: update
     process:
         definition-cache-limit: 100
