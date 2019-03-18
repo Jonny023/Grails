@@ -152,6 +152,7 @@ class FlowController {
         baseService.repositoryService.saveModel(modelData)
         render true
     }
+
     /**启动流程*/
     def startProcess() {
         def record = request.JSON ?: params
