@@ -30,7 +30,7 @@ beans = {
 
 ## `application.yml`中新增配置
 
-* `database-schema-update`配置为true，否则首次启动报错
+* `database-schema-update`配置为true，否则首次配置为`create-drop`
 
 
 ## 错误提示
