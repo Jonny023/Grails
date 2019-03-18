@@ -44,7 +44,7 @@ activitiModeler
         
         // Initialize angular-translate
         $translateProvider.useStaticFilesLoader({
-            prefix: './editor-app/i18n/',
+            prefix: basePath + '/assets/flow/editor-app/i18n/',
             suffix: '.json'
         });
         var language = navigator.language;
@@ -107,7 +107,7 @@ activitiModeler
                         $rootScope.editorFactory.resolve();
                     }).
                     error(function (data, status, headers, config) {
-                      console.log('Error loading model with id ' + modelId + ' ' + data);
+                      // console.log('Error loading model with id ' + modelId + ' ' + data);
                     });
             }
 
