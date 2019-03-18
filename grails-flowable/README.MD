@@ -129,5 +129,7 @@ def index() {
 
 ## 流程图
 
-[参考](https://github.com/hs-web/hsweb-flowable-modeler)
+[参考1](https://github.com/hs-web/hsweb-flowable-modeler)
+
+[参考2](https://blog.csdn.net/qq_38425662/article/details/82898198)
 
