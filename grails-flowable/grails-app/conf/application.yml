@@ -135,6 +135,6 @@ environments:
 flowable:
     #关闭定时任务JOB
     async-executor-activate: false
-    database-schema-update: false
+    database-schema-update: update
     process:
         definition-cache-limit: 100
