@@ -1,4 +1,4 @@
-#Grails-cache demo
+# Grails-cache demo
 
 [参考文档](http://grails-plugins.github.io/grails-cache-ehcache/latest/)
 
