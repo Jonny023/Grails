@@ -25,7 +25,8 @@ KISBPM.URL = {
     },
 
     getStencilSet: function() {
-        return ACTIVITI.CONFIG.contextRoot + '/stencilset.json';
+        // return ACTIVITI.CONFIG.contextRoot + '/stencilset.json';
+        return baseUrl + '/stencilset.json';
     },
 
     putModel: function(modelId) {
