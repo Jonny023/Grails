@@ -27,6 +27,7 @@
 
     <script>
         let basePath = "${request.contextPath}";
+        let baseUrl = "${request.contextPath}/assets/flow";
     </script>
 </head>
 <body>
