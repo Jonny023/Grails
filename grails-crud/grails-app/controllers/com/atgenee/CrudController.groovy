@@ -28,7 +28,7 @@ class CrudController {
     }
 
     /**
-     *  H自定义方言实现HQL昵称排序
+     *  自定义方言实现HQL昵称排序
      *  英文最先排序，然后是中文
      */
     def sort = {
