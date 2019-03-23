@@ -31,7 +31,7 @@ beans = {
 
 ## `application.yml`中新增配置
 
-* `database-schema-update`配置为true，否则首次配置为`create-drop`
+* `database-schema-update`配置为update，首次启动配置为`create-drop`，否则报如下错误
 
 
 ## 错误提示
@@ -45,7 +45,7 @@ Caused by: org.flowable.common.engine.api.FlowableWrongDbException: version mism
 flowable:
     #关闭定时任务JOB
     async-executor-activate: false
-    database-schema-update: true
+    database-schema-update: update
     process:
         definition-cache-limit: 100
 ```
