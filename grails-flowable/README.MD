@@ -7,6 +7,7 @@
 
 ```
 compile "org.flowable:flowable-spring-boot-starter-process:6.4.1"
+compile 'org.flowable:flowable-json-converter:6.4.1'
 ```
 
 ## 配置DSL
