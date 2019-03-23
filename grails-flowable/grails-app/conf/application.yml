@@ -27,6 +27,8 @@ spring:
                 - grails-app/views/**
                 - grails-app/i18n/**
                 - grails-app/conf/**
+                - grails-app/controllers/**
+                - grails-app/services/**
 management:
     endpoints:
         enabled-by-default: false

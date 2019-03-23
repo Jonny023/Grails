@@ -23,11 +23,10 @@ KISBPM.TOOLBAR = {
     ACTIONS: {
 
         saveModel: function (services) {
-
             var modal = services.$modal({
                 backdrop: true,
                 keyboard: true,
-                template: 'editor-app/popups/save-model.html?version=' + Date.now(),
+                template: baseUrl+'/editor-app/popups/save-model.html?version=' + Date.now(),
                 scope: services.$scope
             });
         },
@@ -261,7 +260,7 @@ KISBPM.TOOLBAR = {
         },
         
         closeEditor: function(services) {
-        	window.location.href = "./workflow/procDef/list";
+        	window.location.href = basePath + "/flow/list";
         },
         
         /**
@@ -326,7 +325,7 @@ var SaveModelCtrl = [ '$rootScope', '$scope', '$http', '$route', '$location',
 
     $scope.saveAndClose = function () {
     	$scope.save(function() {
-    		window.location.href = "./bpm/model/index";
+    		window.location.href = basePath + "/flow/list";
     	});
     };
     $scope.save = function (successCallback) {

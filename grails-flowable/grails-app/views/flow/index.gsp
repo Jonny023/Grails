@@ -26,8 +26,9 @@
     <link rel="stylesheet" href="${request.contextPath}/assets/flow/editor-app/css/style-editor.css">
 
     <script>
-        let basePath = "${request.contextPath}";
-        let baseUrl = "${request.contextPath}/assets/flow";
+        %{-- 定义全局变量，供JS中调用--}%
+        const basePath = "${request.contextPath}";
+        const baseUrl = "${request.contextPath}/assets/flow";
     </script>
 </head>
 <body>

@@ -127,6 +127,22 @@ def index() {
 }
 ```
 
+## 启动项目
+
+* 访问[http://localhost:8080/flow/index?modelId=50](http://localhost:8080/flow/index?modelId=50)
+
+## 查看流程图
+
+> `processId`是`act_ru_execution`表中的`PROC_INST_ID_`字段
+
+* (http://localhost:8080/flow/details?processId=e6b30dd0-4d74-11e9-9315-005056c00008)[http://localhost:8080/flow/details?processId=e6b30dd0-4d74-11e9-9315-005056c00008]
+* [表结构关系详见](https://blog.csdn.net/hj7jay/article/details/51302829)
+* 查询拥有`PROC_INST_ID_`字段的表
+
+    ```mysql
+    SELECT DISTINCT TABLE_NAME FROM information_schema.COLUMNS WHERE COLUMN_NAME = 'PROC_INST_ID_' AND TABLE_SCHEMA='flowable'
+    ```
+
 ## 流程图
 
 [参考1](https://github.com/hs-web/hsweb-flowable-modeler)
@@ -137,3 +153,14 @@ def index() {
 
 [参考4](http://www.pianshen.com/article/626055363/)
 
+
+## 发布定义报错
+
+* 流程id直接定义为数字出现问题
+
+```
+cvc-datatype-valid.1.2.1: '1' 不是 'NCName' 的有效值。. Stacktrace follows:
+```
+
+* 原因
+    * `NCName 要以字母或下划线 () 字符开头，后接 XML 规范中允许的任意字母、数字、重音字符、变音符号、句点 (.)、连字符 (-) 和下划线 () 的组合`

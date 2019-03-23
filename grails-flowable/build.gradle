@@ -33,6 +33,14 @@ configurations {
 }
 
 dependencies {
+
+    // 生成svg依赖
+    compile group: 'org.apache.xmlgraphics', name: 'batik-transcoder', version: '1.7'
+    compile group: 'org.apache.xmlgraphics', name: 'batik-css', version: '1.7'
+    compile group: 'org.apache.xmlgraphics', name: 'batik-svg-dom', version: '1.7'
+    compile group: 'org.apache.xmlgraphics', name: 'batik-svggen', version: '1.7'
+    compile group: 'org.apache.xmlgraphics', name: 'batik-codec', version: '1.7'
+
 	developmentOnly("org.springframework.boot:spring-boot-devtools")
     compile "org.springframework.boot:spring-boot-starter-logging"
     compile "org.springframework.boot:spring-boot-autoconfigure"
@@ -70,19 +78,11 @@ dependencies {
 
     // flowable依赖
     compile "org.flowable:flowable-spring-boot-starter-process:6.4.1"
-    compile group: 'org.activiti', name: 'activiti-json-converter', version: '5.22.0'
+    compile 'org.flowable:flowable-json-converter:6.4.1'
 
     // fastjson
     compile group: 'com.alibaba', name: 'fastjson', version: '1.2.55'
 
-
-
-    // 生成svg依赖
-    compile group: 'org.apache.xmlgraphics', name: 'batik-transcoder', version: '1.7'
-    compile group: 'org.apache.xmlgraphics', name: 'batik-css', version: '1.7'
-    compile group: 'org.apache.xmlgraphics', name: 'batik-svg-dom', version: '1.7'
-    compile group: 'org.apache.xmlgraphics', name: 'batik-svggen', version: '1.7'
-    compile group: 'org.apache.xmlgraphics', name: 'batik-codec', version: '1.7'
 
 }
 

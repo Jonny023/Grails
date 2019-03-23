@@ -25,7 +25,7 @@ angular.module('activitiModeler').controller('ActivitiMessageDefinitionsCtrl', [
 
     // Config for the modal window
     var opts = {
-        template: 'editor-app/configuration/properties/message-definitions-popup.html?version=' + Date.now(),
+        template: baseUrl + '/editor-app/configuration/properties/message-definitions-popup.html?version=' + Date.now(),
         scope: $scope
     };
 

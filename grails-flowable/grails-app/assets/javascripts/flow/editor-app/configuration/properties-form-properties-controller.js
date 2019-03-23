@@ -21,11 +21,11 @@
  * Form Properties
  */
 
-var KisBpmFormPropertiesCtrl = [ '$scope', '$modal', '$timeout', '$translate', function($scope, $modal, $timeout, $translate) {
+var KisBpmFormPropertiesCtrl = ['$scope', '$modal', '$timeout', '$translate', function ($scope, $modal, $timeout, $translate) {
 
     // Config for the modal window
     var opts = {
-        template:  'editor-app/configuration/properties/form-properties-popup.html?version=' + Date.now(),
+        template: baseUrl + '/editor-app/configuration/properties/form-properties-popup.html?version=' + Date.now(),
         scope: $scope
     };
 
@@ -33,7 +33,7 @@ var KisBpmFormPropertiesCtrl = [ '$scope', '$modal', '$timeout', '$translate', f
     $modal(opts);
 }];
 
-var KisBpmFormPropertiesPopupCtrl = ['$scope', '$q', '$translate', function($scope, $q, $translate) {
+var KisBpmFormPropertiesPopupCtrl = ['$scope', '$q', '$translate', function ($scope, $q, $translate) {
 
     // Put json representing form properties on scope
     if ($scope.property.value !== undefined && $scope.property.value !== null
@@ -48,37 +48,37 @@ var KisBpmFormPropertiesPopupCtrl = ['$scope', '$q', '$translate', function($sco
 
     // Array to contain selected properties (yes - we only can select one, but ng-grid isn't smart enough)
     $scope.selectedProperties = [];
-    
+
     $scope.translationsRetrieved = false;
-    
+
     $scope.labels = {};
-    
+
     var idPromise = $translate('PROPERTY.FORMPROPERTIES.ID');
     var namePromise = $translate('PROPERTY.FORMPROPERTIES.NAME');
     var typePromise = $translate('PROPERTY.FORMPROPERTIES.TYPE');
-    
-    $q.all([idPromise, namePromise, typePromise]).then(function(results) { 
-    	$scope.labels.idLabel = results[0];
+
+    $q.all([idPromise, namePromise, typePromise]).then(function (results) {
+        $scope.labels.idLabel = results[0];
         $scope.labels.nameLabel = results[1];
         $scope.labels.typeLabel = results[2];
         $scope.translationsRetrieved = true;
-        
-    	// Config for grid
+
+        // Config for grid
         $scope.gridOptions = {
             data: 'formProperties',
             enableRowReordering: true,
             headerRowHeight: 28,
             multiSelect: false,
-            keepLastSelected : false,
+            keepLastSelected: false,
             selectedItems: $scope.selectedProperties,
-            columnDefs: [{ field: 'id', displayName: $scope.labels.idLabel },
-                { field: 'name', displayName: $scope.labels.nameLabel},
-                { field: 'type', displayName: $scope.labels.typeLabel}]
+            columnDefs: [{field: 'id', displayName: $scope.labels.idLabel},
+                {field: 'name', displayName: $scope.labels.nameLabel},
+                {field: 'type', displayName: $scope.labels.typeLabel}]
         };
     });
 
     // Handler for when the value of the type dropdown changes
-    $scope.propertyTypeChanged = function() {
+    $scope.propertyTypeChanged = function () {
 
         // Check date. If date, show date pattern
         if ($scope.selectedProperties[0].type === 'date') {
@@ -89,7 +89,7 @@ var KisBpmFormPropertiesPopupCtrl = ['$scope', '$q', '$translate', function($sco
 
         // Check enum. If enum, show list of options
         if ($scope.selectedProperties[0].type === 'enum') {
-            $scope.selectedProperties[0].enumValues = [ {value: 'value 1'}, {value: 'value 2'}];
+            $scope.selectedProperties[0].enumValues = [{value: 'value 1'}, {value: 'value 2'}];
         } else {
             delete $scope.selectedProperties[0].enumValues;
         }
@@ -97,27 +97,29 @@ var KisBpmFormPropertiesPopupCtrl = ['$scope', '$q', '$translate', function($sco
 
     // Click handler for + button after enum value
     var valueIndex = 3;
-    $scope.addEnumValue = function(index) {
+    $scope.addEnumValue = function (index) {
         $scope.selectedProperties[0].enumValues.splice(index + 1, 0, {value: 'value ' + valueIndex++});
     };
 
     // Click handler for - button after enum value
-    $scope.removeEnumValue = function(index) {
+    $scope.removeEnumValue = function (index) {
         $scope.selectedProperties[0].enumValues.splice(index, 1);
     };
 
     // Click handler for add button
     var propertyIndex = 1;
-    $scope.addNewProperty = function() {
-        $scope.formProperties.push({ id : 'new_property_' + propertyIndex++,
-            name : '',
-            type : 'string',
+    $scope.addNewProperty = function () {
+        $scope.formProperties.push({
+            id: 'new_property_' + propertyIndex++,
+            name: '',
+            type: 'string',
             readable: true,
-            writable: true});
+            writable: true
+        });
     };
 
     // Click handler for remove button
-    $scope.removeProperty = function() {
+    $scope.removeProperty = function () {
         if ($scope.selectedProperties.length > 0) {
             var index = $scope.formProperties.indexOf($scope.selectedProperties[0]);
             $scope.gridOptions.selectItem(index, false);
@@ -133,14 +135,14 @@ var KisBpmFormPropertiesPopupCtrl = ['$scope', '$q', '$translate', function($sco
     };
 
     // Click handler for up button
-    $scope.movePropertyUp = function() {
+    $scope.movePropertyUp = function () {
         if ($scope.selectedProperties.length > 0) {
             var index = $scope.formProperties.indexOf($scope.selectedProperties[0]);
             if (index != 0) { // If it's the first, no moving up of course
                 // Reason for funny way of swapping, see https://github.com/angular-ui/ng-grid/issues/272
                 var temp = $scope.formProperties[index];
                 $scope.formProperties.splice(index, 1);
-                $timeout(function(){
+                $timeout(function () {
                     $scope.formProperties.splice(index + -1, 0, temp);
                 }, 100);
 
@@ -149,14 +151,14 @@ var KisBpmFormPropertiesPopupCtrl = ['$scope', '$q', '$translate', function($sco
     };
 
     // Click handler for down button
-    $scope.movePropertyDown = function() {
+    $scope.movePropertyDown = function () {
         if ($scope.selectedProperties.length > 0) {
             var index = $scope.formProperties.indexOf($scope.selectedProperties[0]);
             if (index != $scope.formProperties.length - 1) { // If it's the last element, no moving down of course
                 // Reason for funny way of swapping, see https://github.com/angular-ui/ng-grid/issues/272
                 var temp = $scope.formProperties[index];
                 $scope.formProperties.splice(index, 1);
-                $timeout(function(){
+                $timeout(function () {
                     $scope.formProperties.splice(index + 1, 0, temp);
                 }, 100);
 
@@ -165,7 +167,7 @@ var KisBpmFormPropertiesPopupCtrl = ['$scope', '$q', '$translate', function($sco
     };
 
     // Click handler for save button
-    $scope.save = function() {
+    $scope.save = function () {
 
         if ($scope.formProperties.length > 0) {
             $scope.property.value = {};
@@ -178,15 +180,15 @@ var KisBpmFormPropertiesPopupCtrl = ['$scope', '$q', '$translate', function($sco
         $scope.close();
     };
 
-    $scope.cancel = function() {
-    	$scope.$hide();
-    	$scope.property.mode = 'read';
+    $scope.cancel = function () {
+        $scope.$hide();
+        $scope.property.mode = 'read';
     };
 
     // Close button handler
-    $scope.close = function() {
-    	$scope.$hide();
-    	$scope.property.mode = 'read';
+    $scope.close = function () {
+        $scope.$hide();
+        $scope.property.mode = 'read';
     };
 
 }];
