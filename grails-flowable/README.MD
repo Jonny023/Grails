@@ -23,8 +23,8 @@ beans = {
         jdbcDriver = grailsApplication.config.dataSource.driverClassName
         jdbcUsername = grailsApplication.config.dataSource.username
         jdbcPassword = grailsApplication.config.dataSource.password
-        databaseSchemaUpdate = "update" // "true" or "create-drop"
-        asyncExecutorActivate = false
+        //databaseSchemaUpdate = "update" // "true" or "create-drop"
+        //asyncExecutorActivate = false
     }
 }
 ```
