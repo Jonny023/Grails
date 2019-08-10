@@ -1,0 +1,8 @@
+---
+grails:
+  redis:
+    port: 6379
+    host: loalhost
+    poolConfig:
+      maxIdle: 10
+      doesnotexist: true
